@@ -17,6 +17,7 @@ function App() {
       <h2 style={{ fontSize: '24px' }}>Count: {count}</h2>
       <div>
         <button
+          name='Increment'
           onClick={handleIncrement}
           style={{
             padding: '8px 16px',
@@ -30,6 +31,7 @@ function App() {
           Increment
         </button>
         <button
+          name='Decrement'
           onClick={handleDecrement}
           style={{
             padding: '8px 16px',
