@@ -1,13 +1,49 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import React, { useState } from 'react';
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+function App() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const handleDecrement = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1 style={{ fontSize: '40px', fontWeight: 'bold' }}>Counter App</h1>
+      <h2 style={{ fontSize: '24px' }}>Count: {count}</h2>
+      <div>
+        <button
+          onClick={handleIncrement}
+          style={{
+            padding: '8px 16px',
+            fontSize: '16px',
+            marginRight: '10px',
+            border: '1px solid #888',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }}
+        >
+          Increment
+        </button>
+        <button
+          onClick={handleDecrement}
+          style={{
+            padding: '8px 16px',
+            fontSize: '16px',
+            border: '1px solid #888',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }}
+        >
+          Decrement
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default function Home() {
-  return <Welcome />;
-}
+export default App;
